@@ -28,7 +28,7 @@ class CASino::ActiveRecordAuthenticator
     password_from_database = user.send(@options[:password_column])
 
     if valid_password?(password, password_from_database)
-      { username: user.send(@options[:username_column]), extra_attributes: extra_attributes(user) }
+      { :username => user.send(@options[:username_column]), extra_attributes: extra_attributes(user) }
     else
       false
     end
